@@ -5,4 +5,5 @@ public class Mul {
          System.out.println("iam mul of tulasi");
     }
    
+    
 }
