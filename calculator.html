@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            body{
+                background-color: black;
+            }
+            .number{
+                background-color: rgb(51, 51, 51);;
+                color:white;
+                border:none;
+                height:60px;
+                width:60px;
+                border-radius: 50%;
+                font-size:25px;
+                cursor:pointer;
+                margin-right: 5px
+            }
+            .clearbutton{
+                font-size:20px;
+            }
+            .output{
+                color:white;
+                font-size: 45px;
+                margin-top: 15px;
+                margin-bottom: 5px;
+            }
+            .yellow{
+                background-color: rgb(254, 160, 10);
+            }
+        </style>
+    </head>
+    <body>   
+
+        <p class="js-output output"></p>
+
+        <p>
+            <button onclick="
+                updateCalculation(1);
+                " class="number">1</button>
+            <button onclick="
+                updateCalculation(2);
+            " class="number">2</button>
+            <button onclick="
+                updateCalculation(3);
+            " class="number">3</button>
+            <button onclick="
+                updateCalculation('+');
+            " class="number yellow">+</button>
+        </p>
+
+        <p>
+            <button onclick="
+                updateCalculation(4);
+                " class="number">4</button>
+            <button onclick="
+                updateCalculation(5);
+            " class="number">5</button>
+            <button onclick="
+                updateCalculation(6);
+            " class="number">6</button>
+            <button onclick="
+                updateCalculation('-');
+            " class="number yellow">-</button>
+        </p>
+
+        <p>
+            <button onclick="
+                updateCalculation(7);
+                " class="number">7</button>
+            <button onclick="
+                updateCalculation(8);
+            " class="number">8</button>
+            <button onclick="
+                updateCalculation(9);
+            " class="number">9</button>
+            <button onclick="
+                updateCalculation('*');
+            " class="number yellow">*</button>
+        </p>
+
+        <p>
+            <button onclick="
+                updateCalculation(0);
+                " class="number">0</button>
+            <button onclick="
+                updateCalculation('.');
+            " class="number">.</button>
+            <button onclick="
+                calculate=eval(calculate);
+                document.querySelector('.js-output').innerHTML=calculate;
+            " class="number">=</button>
+            <button onclick="
+                updateCalculation('/');
+            " class="number yellow">/</button>
+        </p>
+        <button onclick="
+            calculate='';
+            document.querySelector('.js-output').innerHTML=calculate;
+            localStorage.setItem('calculate',calculate);
+        " class="number clearbutton">clear</button>
+        <script>
+            let calculate=localStorage.getItem('calculate')||'';
+            document.querySelector('.js-output').innerHTML=calculate;
+            function updateCalculation(num){
+                calculate+= num;
+                document.querySelector('.js-output').innerHTML=calculate;
+                localStorage.setItem('calculate',calculate);
+            }
+        </script>
+    </body>
+</html>
